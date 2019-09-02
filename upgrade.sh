@@ -347,6 +347,7 @@ root@scylladb:~#
 
 
 #####install modules####
+apt-get install libncurses.dev
 pip3 install readline
 pip3 install  numpy
 pip3 install  pandas
