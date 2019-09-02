@@ -293,4 +293,86 @@ drwxr-xr-x 2 root root 4096 Sep  2 10:07 setuptools-40.8.0.dist-info
 
 
 
+###remove python3.6
+
+# dpkg -r python3.6
+# apt-get remove python3.6
+
+root@scylladb:~# whereis python3
+python3: /usr/bin/python3.6 /usr/bin/python3 /usr/bin/python3.6m /usr/lib/python3.6 /usr/lib/python3 /etc/python3.6 /usr/local/bin/python3 /usr/local/bin/python3.7 /usr/local/bin/python3.7m-config /usr/local/bin/python3.7m /usr/local/bin/python3.7-config /usr/local/lib/python3.6 /usr/local/lib/python3.7 /usr/include/python3.6 /usr/include/python3.6m /usr/share/python3 /usr/share/man/man1/python3.1.gz
+root@scylladb:~#
+root@scylladb:~# rm /usr/bin/python3.6
+root@scylladb:~# rm /usr/bin/python3.6m
+root@scylladb:~# rm /usr/lib/python3.6
+rm: cannot remove '/usr/lib/python3.6': Is a directory
+root@scylladb:~# rm -r /usr/lib/python3.6
+root@scylladb:~# whereis python3 | sed 's/ /\n/g'
+python3:
+/usr/bin/python3
+/usr/lib/python3
+/etc/python3.6
+/usr/local/bin/python3
+/usr/local/bin/python3.7
+/usr/local/bin/python3.7m-config
+/usr/local/bin/python3.7m
+/usr/local/bin/python3.7-config
+/usr/local/lib/python3.6
+/usr/local/lib/python3.7
+/usr/include/python3.6
+/usr/include/python3.6m
+/usr/share/python3
+/usr/share/man/man1/python3.1.gz
+root@scylladb:~# rm /etc/python3.6
+rm: cannot remove '/etc/python3.6': Is a directory
+root@scylladb:~# rm -r /etc/python3.6
+root@scylladb:~# rm -r /usr/local/lib/python3.6
+root@scylladb:~# rm -r /usr/include/python3.6
+root@scylladb:~# rm -r /usr/include/python3.6m
+root@scylladb:~#
+root@scylladb:~# whereis python3 | sed 's/ /\n/g'
+python3:
+/usr/bin/python3
+/usr/lib/python3
+/usr/local/bin/python3
+/usr/local/bin/python3.7
+/usr/local/bin/python3.7m-config
+/usr/local/bin/python3.7m
+/usr/local/bin/python3.7-config
+/usr/local/lib/python3.7
+/usr/share/python3
+/usr/share/man/man1/python3.1.gz
+root@scylladb:~#
+
+########################################
+
+
+#####install modules####
+
+pip3 install  numpy
+pip3 install  pandas
+pip3 install xdict
+pip3 install elist
+pip3 install edict
+pip3 install dlist
+pip3 install tlist
+pip3 install ltdict
+pip3 install estring
+pip3 install spaint
+pip3 install rblk
+pip3 install sldghmmr4nut
+pip3 install qtable
+pip3 install efdir
+pip3 install navegador5
+pip3 install nvhtml
+pip3 install xxurl
+pip3 install tytycss
+pip3 install kukibanshee
+pip3 install nvhead
+pip3 install minidoc
+pip3 install conjugar
+
+
+##########
+
+
  
