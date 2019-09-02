@@ -347,7 +347,7 @@ root@scylladb:~#
 
 
 #####install modules####
-
+pip3 install readline
 pip3 install  numpy
 pip3 install  pandas
 pip3 install xdict
