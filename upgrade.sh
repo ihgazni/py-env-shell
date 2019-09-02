@@ -215,6 +215,79 @@ pip3 install elist
 
 #####how to change install path
 
+root@scylladb:~# whereis python3 | sed 's/ /\n/g'
+python3:
+/usr/bin/python3.6
+/usr/bin/python3
+/usr/bin/python3.6m
+/usr/lib/python3.6
+/usr/lib/python3
+/etc/python3.6
+/usr/local/bin/python3
+/usr/local/bin/python3.7
+/usr/local/bin/python3.7m-config
+/usr/local/bin/python3.7m
+/usr/local/bin/python3.7-config
+/usr/local/lib/python3.6
+/usr/local/lib/python3.7
+/usr/include/python3.6
+/usr/include/python3.6m
+/usr/share/python3
+/usr/share/man/man1/python3.1.gz
+
+root@scylladb:~# cat  /etc/python3.6/sitecustomize.py
+# install the apport exception handler if available
+try:
+    import apport_python_hook
+except ImportError:
+    pass
+else:
+    apport_python_hook.install()
+root@scylladb:~#
+
+
+ls -l /usr/local/lib/python3.6/dist-packages/
+
+root@scylladb:~# python3.6
+Python 3.6.8 (default, Jan 14 2019, 11:02:34)
+[GCC 8.0.1 20180414 (experimental) [trunk revision 259383]] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sys
+>>> sys.path
+['', '/usr/lib/python36.zip', '/usr/lib/python3.6', '/usr/lib/python3.6/lib-dynload', '/usr/local/lib/python3.6/dist-packages', '/usr/lib/python3/dist-packages']
+>>>
+>>>
+
+
+
+
+
+root@scylladb:~# ls -l /usr/local/lib/python3.7/dist-packages/
+ls: cannot access '/usr/local/lib/python3.7/dist-packages/': No such file or directory
+root@scylladb:~#
+root@scylladb:~#
+root@scylladb:~# python3
+Python 3.7.4 (default, Sep  2 2019, 10:40:34)
+[GCC 7.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import elist
+>>> import sys
+>>> sys.path
+['', '/usr/local/lib/python37.zip', '/usr/local/lib/python3.7', '/usr/local/lib/python3.7/lib-dynload', '/usr/local/lib/python3.7/site-packages']
+>>>
+root@scylladb:~# ls -l /usr/local/lib/python3.7/site-packages
+total 40
+-rw-r--r-- 1 root root  126 Sep  2 10:06 easy_install.py
+drwxr-xr-x 3 root root 4096 Sep  2 10:49 elist
+drwxr-xr-x 2 root root 4096 Sep  2 10:49 elist-0.4.39-py3.7.egg-info
+drwxr-xr-x 5 root root 4096 Sep  2 10:50 pip
+drwxr-xr-x 2 root root 4096 Sep  2 10:50 pip-19.2.3.dist-info
+drwxr-xr-x 5 root root 4096 Sep  2 10:07 pkg_resources
+drwxr-xr-x 2 root root 4096 Sep  2 10:45 __pycache__
+-rw-r--r-- 1 root root  119 Sep  2 10:43 README.txt
+drwxr-xr-x 6 root root 4096 Sep  2 10:07 setuptools
+drwxr-xr-x 2 root root 4096 Sep  2 10:07 setuptools-40.8.0.dist-info
+
 
 ############################3
 
