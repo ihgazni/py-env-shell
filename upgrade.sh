@@ -47,7 +47,7 @@ pip 19.0.3 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
 
 
 
-#check and correct  path
+#check 
 
 root@scylladb:~# which python3
 /usr/local/bin/python3
@@ -207,7 +207,16 @@ root@scylladb:~# echo $PYTHONHOME
 
 #############################
 
+pip3 install --upgrade pip
+pip3 install elist
 
+
+###############################
+
+#####how to change install path
+
+
+############################3
 
 
 
