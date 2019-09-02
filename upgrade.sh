@@ -375,4 +375,208 @@ pip3 install conjugar
 ##########
 
 
+
+###dpkg remove 
+
+root@scylladb:~# dpkg -l | egrep python3.6
+ii  libpython3.6:amd64                    3.6.8-1~18.04.1                   amd64        Shared Python runtime library (version 3.6)
+ii  libpython3.6-dev:amd64                3.6.8-1~18.04.1                   amd64        Header files and a static library for Python (v3.6)
+ii  libpython3.6-minimal:amd64            3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+ii  libpython3.6-stdlib:amd64             3.6.8-1~18.04.1                   amd64        Interactive high-level object-oriented language (standard library, version 3.6)
+ii  python3.6-minimal                     3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+root@scylladb:~#
+root@scylladb:~#
+root@scylladb:~# dpkg -r python3.6-minimal
+dpkg: dependency problems prevent removal of python3.6-minimal:
+ python3-minimal depends on python3.6-minimal (>= 3.6.7-1~).
+
+dpkg: error processing package python3.6-minimal (--remove):
+ dependency problems - not removing
+Errors were encountered while processing:
+ python3.6-minimal
+root@scylladb:~# dpkg -l | egrep python3
+ii  libpython3-dev:amd64                  3.6.7-1~18.04                     amd64        header files and a static library for Python (default)
+ii  libpython3-stdlib:amd64               3.6.7-1~18.04                     amd64        interactive high-level object-oriented language (default python3 version)
+ii  libpython3.6:amd64                    3.6.8-1~18.04.1                   amd64        Shared Python runtime library (version 3.6)
+ii  libpython3.6-dev:amd64                3.6.8-1~18.04.1                   amd64        Header files and a static library for Python (v3.6)
+ii  libpython3.6-minimal:amd64            3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+ii  libpython3.6-stdlib:amd64             3.6.8-1~18.04.1                   amd64        Interactive high-level object-oriented language (standard library, version 3.6)
+rc  python3-json-pointer                  1.10-1                            all          resolve JSON pointers - Python 3.x
+rc  python3-jsonpatch                     1.19+really1.16-1fakesync1        all          library to apply JSON patches - Python 3.x
+rc  python3-jsonschema                    2.6.0-2                           all          An(other) implementation of JSON Schema (Draft 3 and 4) - Python 3.x
+ii  python3-minimal                       3.6.7-1~18.04                     amd64        minimal subset of the Python language (default python3 version)
+rc  python3-twisted                       17.9.0-2                          all          Event-based framework for internet applications
+ri  python3.6-minimal                     3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+root@scylladb:~#
+root@scylladb:~#
+root@scylladb:~#
+root@scylladb:~#
+root@scylladb:~# dpkg -l | egrep python3 | egrep 3.6
+ii  libpython3-dev:amd64                  3.6.7-1~18.04                     amd64        header files and a static library for Python (default)
+ii  libpython3-stdlib:amd64               3.6.7-1~18.04                     amd64        interactive high-level object-oriented language (default python3 version)
+ii  libpython3.6:amd64                    3.6.8-1~18.04.1                   amd64        Shared Python runtime library (version 3.6)
+ii  libpython3.6-dev:amd64                3.6.8-1~18.04.1                   amd64        Header files and a static library for Python (v3.6)
+ii  libpython3.6-minimal:amd64            3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+ii  libpython3.6-stdlib:amd64             3.6.8-1~18.04.1                   amd64        Interactive high-level object-oriented language (standard library, version 3.6)
+ii  python3-minimal                       3.6.7-1~18.04                     amd64        minimal subset of the Python language (default python3 version)
+ri  python3.6-minimal                     3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+root@scylladb:~#
+root@scylladb:~#
+root@scylladb:~# dpkg -r python3-minimal
+(Reading database ... 105367 files and directories currently installed.)
+Removing python3-minimal (3.6.7-1~18.04) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+root@scylladb:~#
+root@scylladb:~# dpkg -r python3.6-minimal
+(Reading database ... 105344 files and directories currently installed.)
+Removing python3.6-minimal (3.6.8-1~18.04.1) ...
+Unlinking and removing bytecode for runtime python3.6
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+root@scylladb:~#
+root@scylladb:~# dpkg -r libpython3.6-stdlib
+dpkg: dependency problems prevent removal of libpython3.6-stdlib:amd64:
+ libpython3.6:amd64 depends on libpython3.6-stdlib (= 3.6.8-1~18.04.1).
+ libpython3.6-dev:amd64 depends on libpython3.6-stdlib (= 3.6.8-1~18.04.1).
+ libpython3-stdlib:amd64 depends on libpython3.6-stdlib (>= 3.6.7-1~).
+
+dpkg: error processing package libpython3.6-stdlib:amd64 (--remove):
+ dependency problems - not removing
+Errors were encountered while processing:
+ libpython3.6-stdlib:amd64
+root@scylladb:~# dpkg -r libpython3.6
+dpkg: dependency problems prevent removal of libpython3.6:amd64:
+ libpython3.6-dev:amd64 depends on libpython3.6 (= 3.6.8-1~18.04.1).
+ vim depends on libpython3.6 (>= 3.6.5).
+
+dpkg: error processing package libpython3.6:amd64 (--remove):
+ dependency problems - not removing
+Errors were encountered while processing:
+ libpython3.6:amd64
+root@scylladb:~#
+root@scylladb:~# vim
+root@scylladb:~# dpkg -l | egrep python3 | egrep 3.6
+ii  libpython3-dev:amd64                  3.6.7-1~18.04                     amd64        header files and a static library for Python (default)
+ii  libpython3-stdlib:amd64               3.6.7-1~18.04                     amd64        interactive high-level object-oriented language (default python3 version)
+ri  libpython3.6:amd64                    3.6.8-1~18.04.1                   amd64        Shared Python runtime library (version 3.6)
+ii  libpython3.6-dev:amd64                3.6.8-1~18.04.1                   amd64        Header files and a static library for Python (v3.6)
+ii  libpython3.6-minimal:amd64            3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+ri  libpython3.6-stdlib:amd64             3.6.8-1~18.04.1                   amd64        Interactive high-level object-oriented language (standard library, version 3.6)
+rc  python3.6-minimal                     3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+root@scylladb:~# dpkg -r python3.6-minimal
+dpkg: warning: ignoring request to remove python3.6-minimal, only the config
+ files of which are on the system; use --purge to remove them too
+root@scylladb:~# dpkg -r python3.6-minimal --purge
+dpkg: error: --remove needs a valid package name but '--purge' is not: illegal package name in specifier '--purge': must start with an alphanumeric character
+
+Type dpkg --help for help about installing and deinstalling packages [*];
+Use 'apt' or 'aptitude' for user-friendly package management;
+Type dpkg -Dhelp for a list of dpkg debug flag values;
+Type dpkg --force-help for a list of forcing options;
+Type dpkg-deb --help for help about manipulating *.deb files;
+
+Options marked [*] produce a lot of output - pipe it through 'less' or 'more' !
+root@scylladb:~#
+root@scylladb:~# dpkg -r --purge python3.6-minimal
+dpkg: error: conflicting actions -P (--purge) and -r (--remove)
+
+Type dpkg --help for help about installing and deinstalling packages [*];
+Use 'apt' or 'aptitude' for user-friendly package management;
+Type dpkg -Dhelp for a list of dpkg debug flag values;
+Type dpkg --force-help for a list of forcing options;
+Type dpkg-deb --help for help about manipulating *.deb files;
+
+Options marked [*] produce a lot of output - pipe it through 'less' or 'more' !
+root@scylladb:~#
+root@scylladb:~# dpkg --purge python3.6-minimal
+(Reading database ... 105334 files and directories currently installed.)
+Purging configuration files for python3.6-minimal (3.6.8-1~18.04.1) ...
+root@scylladb:~#
+root@scylladb:~#
+root@scylladb:~# dpkg -l | egrep python3 | egrep 3.6
+ii  libpython3-dev:amd64                  3.6.7-1~18.04                     amd64        header files and a static library for Python (default)
+ii  libpython3-stdlib:amd64               3.6.7-1~18.04                     amd64        interactive high-level object-oriented language (default python3 version)
+ri  libpython3.6:amd64                    3.6.8-1~18.04.1                   amd64        Shared Python runtime library (version 3.6)
+ii  libpython3.6-dev:amd64                3.6.8-1~18.04.1                   amd64        Header files and a static library for Python (v3.6)
+ii  libpython3.6-minimal:amd64            3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+ri  libpython3.6-stdlib:amd64             3.6.8-1~18.04.1                   amd64        Interactive high-level object-oriented language (standard library, version 3.6)
+root@scylladb:~#
+root@scylladb:~# dpkg -r libpython3-dev
+(Reading database ... 105334 files and directories currently installed.)
+Removing libpython3-dev:amd64 (3.6.7-1~18.04) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+root@scylladb:~# dpkg -r libpython3-stdlib
+(Reading database ... 105326 files and directories currently installed.)
+Removing libpython3-stdlib:amd64 (3.6.7-1~18.04) ...
+root@scylladb:~# dpkg -r libpython3.6-minimal
+dpkg: dependency problems prevent removal of libpython3.6-minimal:amd64:
+ libpython3.6-stdlib:amd64 depends on libpython3.6-minimal (= 3.6.8-1~18.04.1).
+
+dpkg: error processing package libpython3.6-minimal:amd64 (--remove):
+ dependency problems - not removing
+Errors were encountered while processing:
+ libpython3.6-minimal:amd64
+root@scylladb:~# dpkg -r libpython3.6-stdlib
+dpkg: dependency problems prevent removal of libpython3.6-stdlib:amd64:
+ libpython3.6:amd64 depends on libpython3.6-stdlib (= 3.6.8-1~18.04.1).
+ libpython3.6-dev:amd64 depends on libpython3.6-stdlib (= 3.6.8-1~18.04.1).
+
+dpkg: error processing package libpython3.6-stdlib:amd64 (--remove):
+ dependency problems - not removing
+Errors were encountered while processing:
+ libpython3.6-stdlib:amd64
+root@scylladb:~# dpkg --purge libpython3.6
+dpkg: dependency problems prevent removal of libpython3.6:amd64:
+ libpython3.6-dev:amd64 depends on libpython3.6 (= 3.6.8-1~18.04.1).
+ vim depends on libpython3.6 (>= 3.6.5).
+
+dpkg: error processing package libpython3.6:amd64 (--purge):
+ dependency problems - not removing
+Errors were encountered while processing:
+ libpython3.6:amd64
+root@scylladb:~#
+root@scylladb:~# dpkg -l | egrep python3 | egrep 3.6
+pi  libpython3.6:amd64                    3.6.8-1~18.04.1                   amd64        Shared Python runtime library (version 3.6)
+ii  libpython3.6-dev:amd64                3.6.8-1~18.04.1                   amd64        Header files and a static library for Python (v3.6)
+ri  libpython3.6-minimal:amd64            3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+ri  libpython3.6-stdlib:amd64             3.6.8-1~18.04.1                   amd64        Interactive high-level object-oriented language (standard library, version 3.6)
+root@scylladb:~#
+root@scylladb:~# dpkg -r libpython3.6
+dpkg: dependency problems prevent removal of libpython3.6:amd64:
+ libpython3.6-dev:amd64 depends on libpython3.6 (= 3.6.8-1~18.04.1).
+ vim depends on libpython3.6 (>= 3.6.5).
+
+dpkg: error processing package libpython3.6:amd64 (--remove):
+ dependency problems - not removing
+Errors were encountered while processing:
+ libpython3.6:amd64
+root@scylladb:~# dpkg --remove libpython3.6
+dpkg: dependency problems prevent removal of libpython3.6:amd64:
+ libpython3.6-dev:amd64 depends on libpython3.6 (= 3.6.8-1~18.04.1).
+ vim depends on libpython3.6 (>= 3.6.5).
+
+dpkg: error processing package libpython3.6:amd64 (--remove):
+ dependency problems - not removing
+Errors were encountered while processing:
+ libpython3.6:amd64
+root@scylladb:~# dpkg --purge libpython3.6
+dpkg: dependency problems prevent removal of libpython3.6:amd64:
+ libpython3.6-dev:amd64 depends on libpython3.6 (= 3.6.8-1~18.04.1).
+ vim depends on libpython3.6 (>= 3.6.5).
+
+dpkg: error processing package libpython3.6:amd64 (--purge):
+ dependency problems - not removing
+Errors were encountered while processing:
+ libpython3.6:amd64
+root@scylladb:~#
+root@scylladb:~#
+root@scylladb:~# dpkg -l | egrep python3 | egrep 3.6
+pi  libpython3.6:amd64                    3.6.8-1~18.04.1                   amd64        Shared Python runtime library (version 3.6)
+ii  libpython3.6-dev:amd64                3.6.8-1~18.04.1                   amd64        Header files and a static library for Python (v3.6)
+ri  libpython3.6-minimal:amd64            3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+ri  libpython3.6-stdlib:amd64             3.6.8-1~18.04.1                   amd64        Interactive high-level object-oriented language (standard library, version 3.6)
+root@scylladb:~#
+root@scylladb:~#
+
+####
+
  
