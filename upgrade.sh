@@ -577,6 +577,42 @@ ri  libpython3.6-stdlib:amd64             3.6.8-1~18.04.1                   amd6
 root@scylladb:~#
 root@scylladb:~#
 
+
+root@scylladb:~# dpkg -l | egrep python3 | egrep 3.6
+pi  libpython3.6:amd64                    3.6.8-1~18.04.1                   amd64        Shared Python runtime library (version 3.6)
+ii  libpython3.6-dev:amd64                3.6.8-1~18.04.1                   amd64        Header files and a static library for Python (v3.6)
+ri  libpython3.6-minimal:amd64            3.6.8-1~18.04.1                   amd64        Minimal subset of the Python language (version 3.6)
+ri  libpython3.6-stdlib:amd64             3.6.8-1~18.04.1                   amd64        Interactive high-level object-oriented language (standard library, version 3.6)
+root@scylladb:~#
+root@scylladb:~# dpkg --purge --force-all libpython3.6
+dpkg: libpython3.6:amd64: dependency problems, but removing anyway as you requested:
+ libpython3.6-dev:amd64 depends on libpython3.6 (= 3.6.8-1~18.04.1).
+ vim depends on libpython3.6 (>= 3.6.5).
+
+(Reading database ... 105322 files and directories currently installed.)
+Removing libpython3.6:amd64 (3.6.8-1~18.04.1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+root@scylladb:~# dpkg --purge --force-all libpython3.6-dev
+(Reading database ... 105316 files and directories currently installed.)
+Removing libpython3.6-dev:amd64 (3.6.8-1~18.04.1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+root@scylladb:~#
+root@scylladb:~# dpkg --purge --force-all libpython3.6-minimal
+dpkg: libpython3.6-minimal:amd64: dependency problems, but removing anyway as you requested:
+ libpython3.6-stdlib:amd64 depends on libpython3.6-minimal (= 3.6.8-1~18.04.1).
+
+(Reading database ... 105189 files and directories currently installed.)
+Removing libpython3.6-minimal:amd64 (3.6.8-1~18.04.1) ...
+find: ‘/usr/lib/python3.6’: No such file or directory
+Purging configuration files for libpython3.6-minimal:amd64 (3.6.8-1~18.04.1) ...
+root@scylladb:~#
+root@scylladb:~# dpkg --purge --force-all libpython3.6-stdlib
+(Reading database ... 104963 files and directories currently installed.)
+Removing libpython3.6-stdlib:amd64 (3.6.8-1~18.04.1) ...
+find: ‘/usr/lib/python3.6’: No such file or directory
+root@scylladb:~#  dpkg -l | egrep python3 | egrep 3.6
+
+
 ####
 
  
