@@ -381,6 +381,9 @@ pip3 install conjugar
 
 
 
-####
+####change the python  dir 
+./configure --prefix=/your/custom/installation/path
 
+####change package dir
+python3 setup.py install --prefix
  
